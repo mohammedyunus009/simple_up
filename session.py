@@ -18,7 +18,7 @@ def index():
     if request.method == 'POST':
         session.pop('user', None)
 
-        if request.form['password'] == 'password':
+        if request.form['password'] == '':
             session['user'] = request.form['username']
             return render_template('upload.html')
 
@@ -55,7 +55,7 @@ def predict():
     import random
     a=random.randint(0,14)
     with open('templates/pro.html','w') as f:
-        f.write("u are in "+labels[a]+"environment")
+        f.write("u are in "+labels[a]+" environment")
     print "done3"
     return        
         
